@@ -1,0 +1,18 @@
+// src/app/page.js
+import { evaluate } from '../../../libs/management-gene/index.js';
+
+export default function HomePage() {
+  const testResult = evaluate(
+    { days: 5, tier: 'free', device_attempts: 0 },
+    'deploy',
+    { input: '我想部署一个电商网站', budget: '5万', timeline: '2个月' }
+  );
+
+  return (
+    <div style={{ padding: '2rem', fontFamily: 'monospace', lineHeight: 1.6 }}>
+      <h1>🧬 基因核心体 v1.2 测试台</h1>
+      <p>模拟用户：第5天免费用户，尝试部署</p>
+      <pre>{JSON.stringify(testResult, null, 2)}</pre>
+    </div>
+  );
+}
